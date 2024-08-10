@@ -24,3 +24,4 @@ spec:
   tls:
   - hosts:
     - argocd.imjoseangel.eu.org
+    secretName: ingress-tls
