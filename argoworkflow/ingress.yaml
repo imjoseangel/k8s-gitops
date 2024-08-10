@@ -21,5 +21,6 @@ spec:
                   number: 2746
       host: argo-workflow.imjoseangel.eu.org
   tls:
-    - hosts: argo-workflow.imjoseangel.eu.org
+    - hosts:
+      - argo-workflow.imjoseangel.eu.org
       secretName: ingress-tls
