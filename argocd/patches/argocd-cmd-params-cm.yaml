@@ -7,6 +7,6 @@ metadata:
     app.kubernetes.io/name: argocd-cmd-params-cm
     app.kubernetes.io/part-of: argocd
 data:
-  redis.server: argocd-redis-ha-haproxy:6379
+  redis.server: argocd-redis:6379
   redis.compression: gzip
   server.enable.gzip: "true"
