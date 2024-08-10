@@ -6,3 +6,4 @@ resources:
   - argocd.yaml
   - cert-manager.yaml
   - ingress.yaml
+  - workflow.yaml
