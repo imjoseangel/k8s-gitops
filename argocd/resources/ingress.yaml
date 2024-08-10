@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: argo-cd
+  name: ingress-nginx
   namespace: argocd
 spec:
   syncPolicy:
@@ -13,14 +13,14 @@ spec:
           - cluster: in-cluster
   template:
     metadata:
-      name: argocd
+      name: "ingress-nginx"
     spec:
       destination:
         name: "{{cluster}}"
-        namespace: argocd
+        namespace: ingress-nginx
       project: default
       source:
-        path: argocd
+        path: "ingress-nginx/"
         repoURL: https://github.com/imjoseangel/k8s-gitops.git
         targetRevision: HEAD
       syncPolicy:
