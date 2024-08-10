@@ -1,0 +1,10 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: argocd
+  name: argocd
+spec:
+  finalizers:
+    - kubernetes

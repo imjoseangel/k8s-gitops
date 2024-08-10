@@ -1,0 +1,40 @@
+---
+namespace: argocd
+
+resources:
+  - base/namespace.yaml
+  - base/secrets-store.yaml
+  - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/ha/install.yaml
+
+  # configuration
+  - config/argocd-ingress.yaml
+  - config/argocd-projects.yaml
+
+  # resources
+  - resources
+
+patches:
+  - path: patches/argocd-application-controller.yaml
+  - path: patches/argocd-cm.yaml
+  - path: patches/argocd-cmd-params-cm.yaml
+  - path: patches/argocd-rbac-cm.yaml
+  - path: patches/argocd-server.yaml
+  - patch: |-
+      apiVersion: v1
+      kind: Secret
+      metadata:
+        name: argocd-secret
+      $patch: delete
+  - patch: |-
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: argocd-repo-server
+      spec:
+        template:
+          spec:
+            containers:
+              - name: argocd-repo-server
+                env:
+                  - name: ARGOCD_EXEC_TIMEOUT
+                    value: 240s

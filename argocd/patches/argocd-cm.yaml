@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+data:
+  url: https://argocd.imjoseangel.eu.org
+  kustomize.buildOptions: --enable-helm --load-restrictor LoadRestrictionsNone
+  application.instanceLabelKey: argocd.argoproj.io/instance
+  resource.customizations.ignoreDifferences.admissionregistration.k8s.io_MutatingWebhookConfiguration: |
+    jsonPointers:
+    - /webhooks/0/namespaceSelector/matchExpressions
