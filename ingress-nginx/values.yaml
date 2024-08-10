@@ -7,4 +7,3 @@ controller:
 
   service:
     type: ClusterIP
-    externalTrafficPolicy: Local
