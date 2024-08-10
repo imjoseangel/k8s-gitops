@@ -11,7 +11,7 @@ spec:
   project: default
   source:
     path: argocd
-    repoURL: git@ssh.dev.azure.com:v3/example/ops-k8s-deployments/k8s-core-base
+    repoURL: https://github.com/imjoseangel/k8s-gitops.git
     targetRevision: HEAD
   syncPolicy:
     automated:
