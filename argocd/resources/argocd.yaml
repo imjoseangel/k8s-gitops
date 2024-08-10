@@ -5,6 +5,8 @@ metadata:
   name: argo-cd
   namespace: argocd
 spec:
+  syncPolicy:
+    preserveResourcesOnDeletion: true
   destination:
     namespace: argocd
     name: in-cluster
