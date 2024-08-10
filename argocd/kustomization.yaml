@@ -3,8 +3,7 @@ namespace: argocd
 
 resources:
   - base/namespace.yaml
-  - base/secrets-store.yaml
-  - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/ha/install.yaml
+  - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
   # configuration
   - config/argocd-ingress.yaml
@@ -19,12 +18,6 @@ patches:
   - path: patches/argocd-cmd-params-cm.yaml
   - path: patches/argocd-rbac-cm.yaml
   - path: patches/argocd-server.yaml
-  - patch: |-
-      apiVersion: v1
-      kind: Secret
-      metadata:
-        name: argocd-secret
-      $patch: delete
   - patch: |-
       apiVersion: apps/v1
       kind: Deployment
