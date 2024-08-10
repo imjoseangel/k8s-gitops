@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: ingress-nginx
+  name: cert-manager
   namespace: argocd
 spec:
   syncPolicy:
@@ -13,14 +13,14 @@ spec:
           - cluster: in-cluster
   template:
     metadata:
-      name: ingress-nginx
+      name: cert-manager
     spec:
       destination:
         name: "{{cluster}}"
-        namespace: ingress-nginx
+        namespace: cert-manager
       project: default
       source:
-        path: ingress-nginx
+        path: cert-manager
         repoURL: https://github.com/imjoseangel/k8s-gitops.git
         targetRevision: HEAD
       syncPolicy:
