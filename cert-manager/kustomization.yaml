@@ -4,3 +4,24 @@ kind: Kustomization
 
 resources:
   - https://github.com/cert-manager/cert-manager/releases/latest/download/cert-manager.yaml
+
+patches:
+  - patch: |-
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: cert-manager
+        namespace: cert-manager
+      spec:
+        template:
+          spec:
+            containers:
+              - name: cert-manager-controller
+                args:
+                - --v=2
+                - --cluster-resource-namespace=$(POD_NAMESPACE)
+                - --leader-election-namespace=kube-system
+                - --acme-http01-solver-image=quay.io/jetstack/cert-manager-acmesolver:v1.15.2
+                - --max-concurrent-challenges=60
+                - --dns01-recursive-nameservers-only
+                - --dns01-recursive-nameservers=1.1.1.1:53,8.8.8.8:53
