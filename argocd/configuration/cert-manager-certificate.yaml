@@ -1,0 +1,16 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: argocd-certificate
+  namespace: argocd
+spec:
+  secretName: ingress-tls
+  renewBefore: 240h
+  duration: 2160h
+  commonName: argocd.imjoseangel.eu.org
+  dnsNames:
+    - argocd.imjoseangel.eu.org
+  issuerRef:
+    name: tls-issuer
+    kind: Issuer
