@@ -4,6 +4,6 @@ kind: Kustomization
 
 resources:
   - argocd.yaml
-  - cert-manager.yaml
+  # - cert-manager.yaml
   - ingress.yaml
   - workflow.yaml
