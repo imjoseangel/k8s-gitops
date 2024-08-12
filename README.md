@@ -30,12 +30,12 @@ EOF
 
 Reference: [Kind](https://kind.sigs.k8s.io/docs/user/ingress/)
 
-1. Run `kubectl kustomize https://github.com/imjoseangel/k8s-gitops/argocd?ref=HEAD | kubectl apply -f -`
-1. Modify your file `/etc/hosts`:
+2. Run `kubectl kustomize https://github.com/imjoseangel/k8s-gitops/argocd?ref=HEAD | kubectl apply -f -`
+3. Modify your file `/etc/hosts`:
 
 ```text
 127.0.0.1    localhost argocd.imjoseangel.eu.org argo-workflow.imjoseangel.eu.org
 ```
 
-1. Open `https://argocd.imjoseangel.eu.org` and enter the username `admin` and the password
-1. Confirm that all the components are in sync
+4. Open `https://argocd.imjoseangel.eu.org` and enter the username `admin` and the password
+5. Confirm that all the components are in sync
