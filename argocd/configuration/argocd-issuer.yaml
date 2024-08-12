@@ -17,15 +17,3 @@ spec:
           apiTokenSecretRef:
             name: cloudflare-api-token-secret
             key: api-token
-
-# Needs to setup a secret with cloudflare api token. Use Vault or Azure Key Vault
-# or other Secret Management to automate this
-# ---
-# apiVersion: v1
-# kind: Secret
-# metadata:
-#   name: cloudflare-api-token-secret
-#   namespace: argocd
-# type: Opaque
-# data:
-#   api-token: dGVzdA==

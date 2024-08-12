@@ -55,7 +55,36 @@ EOF
 
 For more details on Kind, check out the [Kind Documentation](https://kind.sigs.k8s.io/docs/user/ingress/)
 
-### 2️⃣ Deploy ArgoCD
+### 2️⃣ Configure Cloudflare API Token
+
+To use Cloudflare, you may use **API Tokens**.
+
+Tokens can be created at User **Profile > API Tokens > API Tokens**. The following settings are recommended:
+
+- Permissions:
+  - Zone - DNS - Edit
+  - Zone - Zone - Read
+
+- Zone Resources:
+  - Include - All Zones
+
+First automate a Kubernetes secret containing the new API token:
+
+```yaml
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cloudflare-api-token-secret
+  namespace: argocd
+type: Opaque
+stringData:
+  api-token: <API Token>
+```
+
+More info at [Cloudflare Documentation](https://cert-manager.io/docs/configuration/acme/dns01/cloudflare/)
+
+### 3️⃣ Deploy ArgoCD
 
 Once your cluster is up and running, deploy ArgoCD using the following command:
 
@@ -63,7 +92,7 @@ Once your cluster is up and running, deploy ArgoCD using the following command:
 kubectl kustomize https://github.com/imjoseangel/k8s-gitops/argocd?ref=HEAD | kubectl apply -f -
 ```
 
-### 3️⃣ Configure /etc/hosts
+### 4️⃣ Configure /etc/hosts
 
 To access the ArgoCD UI locally, you’ll need to add the following entries to your `/etc/hosts` file:
 
@@ -71,7 +100,7 @@ To access the ArgoCD UI locally, you’ll need to add the following entries to y
 127.0.0.1    localhost argocd.imjoseangel.eu.org argo-workflow.imjoseangel.eu.org
 ```
 
-### 4️⃣ Access the ArgoCD UI
+### 5️⃣ Access the ArgoCD UI
 
 Open your browser and navigate to:
 
@@ -84,7 +113,7 @@ Login with the default credentials:
 
 > **Note:** You might want to change the password immediately after logging in.
 
-### 5️⃣ Verify Deployment
+### 6️⃣ Verify Deployment
 
 Once logged in, confirm that all the components are in sync:
 
