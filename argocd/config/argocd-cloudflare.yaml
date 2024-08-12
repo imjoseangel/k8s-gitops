@@ -1,0 +1,22 @@
+---
+apiVersion: cert-manager.k8s.cloudflare.com/v1
+kind: OriginIssuer
+metadata:
+  name: origin-ca-issuer
+  namespace: argocd
+spec:
+  requestType: OriginECC
+  auth:
+    serviceKeyRef:
+      name: service-key
+      key: ORIGIN_KEY
+
+## Create secret from vault like this:
+# ---
+# apiVersion: v1
+# kind: Secret
+# metadata:
+#   name: service-key
+#   namespace: argocd
+# data:
+#   ORIGIN_KEY: dGVzdA==
