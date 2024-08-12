@@ -5,8 +5,11 @@ kind: Kustomization
 namespace: argocd
 
 resources:
-  - base/namespace.yaml
+  # argocd
   - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+  # base
+  - base
 
   # configuration
   - configuration
