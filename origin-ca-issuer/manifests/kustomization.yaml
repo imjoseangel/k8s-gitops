@@ -1,0 +1,8 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - https://raw.githubusercontent.com/cloudflare/origin-ca-issuer/trunk/deploy/manifests/0-namespace.yaml
+  - https://raw.githubusercontent.com/cloudflare/origin-ca-issuer/trunk/deploy/manifests/deployment.yaml
+  - https://raw.githubusercontent.com/cloudflare/origin-ca-issuer/trunk/deploy/manifests/serviceaccount.yaml
