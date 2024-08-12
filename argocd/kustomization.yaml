@@ -9,8 +9,7 @@ resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
   # configuration
-  - config/argocd-ingress.yaml
-  - config/argocd-projects.yaml
+  - configuration
 
   # resources
   - resources
