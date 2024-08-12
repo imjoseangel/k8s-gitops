@@ -19,7 +19,7 @@ spec:
     spec:
       destination:
         name: "{{cluster}}"
-      project: default
+      project: external
       source:
         path: deploy/crds
         repoURL: https://github.com/cloudflare/origin-ca-issuer.git

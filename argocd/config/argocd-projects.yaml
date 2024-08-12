@@ -13,3 +13,19 @@ spec:
     server: '*'
   sourceRepos:
   - https://github.com/imjoseangel/k8s-gitops.git
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: external
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  destinations:
+  - namespace: '*'
+    server: '*'
+  sourceRepos:
+  - https://github.com/cloudflare/origin-ca-issuer.git
