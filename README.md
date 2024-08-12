@@ -86,21 +86,29 @@ Login with the default credentials:
 
 Once logged in, confirm that all the components are in sync:
 
-### 📚 Additional Resources
+---
+
+## 📚 Additional Resources
 
 - [ArgoCD Documentation](https://argo-cd.readthedocs.io/en/stable/)
 - [Kind Documentation](https://kind.sigs.k8s.io/docs/)
 - [Kubernetes Documentation](https://kubernetes.io/docs/)
 
-### 🛡️ License
+---
+
+## 🛡️ License
 
 This repository is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
-### 🤝 Contributing
+---
+
+## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome! Feel free to check the [issues](https://github.com/imjoseangel/k8s-gitops/issues) page.
 
-### 🙏 Acknowledgments
+---
+
+## 🙏 Acknowledgments
 
 Special thanks to the contributors of this project for their continuous effort.
 
