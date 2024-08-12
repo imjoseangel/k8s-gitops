@@ -9,6 +9,8 @@ This repository demonstrates how to deploy a self-managed instance of **ArgoCD**
 - **Self-Managed ArgoCD**: Run your own ArgoCD instance for more control.
 - **Disaster Recovery**: Use this setup for production-level DR scenarios.
 - **Kind Cluster**: Easily deploy on a Kind Cluster.
+- **Automatic SSL/TLS Certificates**: Seamlessly manage certificates with cert-manager.
+- **Cloudflare DNS Integration**: Leverage Cloudflare for DNS management and enhanced security.
 
 ---
 
