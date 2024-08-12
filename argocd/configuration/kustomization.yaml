@@ -3,5 +3,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
+  - argocd-certificate.yaml
   - argocd-ingress.yaml
+  - argocd-issuer.yaml
   - argocd-projects.yaml
