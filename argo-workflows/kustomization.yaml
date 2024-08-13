@@ -29,3 +29,5 @@ patches:
                 args:
                   - server
                   - --namespaced
+                  - --auth-mode
+                  - sso
