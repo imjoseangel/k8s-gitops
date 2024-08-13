@@ -11,6 +11,9 @@ data:
     jsonPointers:
     - /webhooks/0/namespaceSelector/matchExpressions
   dex.config: |
+    logger:
+      level: debug
+      format: json
     staticClients:
       - id: argo-workflows-sso
         name: Argo Workflow
