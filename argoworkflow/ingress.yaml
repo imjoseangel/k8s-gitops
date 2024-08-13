@@ -19,8 +19,8 @@ spec:
                 name: argo-server
                 port:
                   number: 2746
-      host: argo-workflow.imjoseangel.eu.org
+      host: argo-workflows.imjoseangel.eu.org
   tls:
     - hosts:
-      - argo-workflow.imjoseangel.eu.org
+      - argo-workflows.imjoseangel.eu.org
       secretName: ingress-tls
