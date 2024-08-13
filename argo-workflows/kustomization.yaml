@@ -28,6 +28,3 @@ patches:
               - name: argo-server
                 args:
                   - server
-                  - --namespaced
-                  - --auth-mode
-                  - sso
