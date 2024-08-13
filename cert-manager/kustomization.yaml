@@ -4,6 +4,7 @@ kind: Kustomization
 
 resources:
   - https://github.com/cert-manager/cert-manager/releases/latest/download/cert-manager.yaml
+  - clusterissuer.yaml
 
 patches:
   - patch: |-
