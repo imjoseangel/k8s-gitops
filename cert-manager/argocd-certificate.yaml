@@ -13,4 +13,4 @@ spec:
     - argocd.imjoseangel.eu.org
   issuerRef:
     name: tls-issuer
-    kind: Issuer
+    kind: ClusterIssuer

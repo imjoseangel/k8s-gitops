@@ -1,9 +1,8 @@
 ---
 apiVersion: cert-manager.io/v1
-kind: Issuer
+kind: ClusterIssuer
 metadata:
   name: tls-issuer
-  namespace: argocd
 spec:
   acme:
     email: josea.munoz@gmail.com
