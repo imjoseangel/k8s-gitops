@@ -123,7 +123,7 @@ Once logged in, confirm that all the components are in sync.
 In this demo, get your token running (SSO with ArgoCD DEX [Recommended](https://argo-workflows.readthedocs.io/en/latest/argo-server-sso-argocd/)):
 
 ```bash
-echo "Bearer $(kubectl get secret -n workflow argo-reader-user.service-account-token -o=jsonpath='{.data.token}' | base64 --decode)"
+echo "Bearer $(kubectl get secrets -n argo-workflows argo-reader-user.service-account-token -o jsonpath='{.data.token}' | base64 --decode)"
 ```
 
 Open your browser and navigate to:
