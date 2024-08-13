@@ -14,9 +14,3 @@ data:
     logger:
       level: debug
       format: json
-    staticClients:
-      - id: my-client-id-1234-1234
-        name: Argo Workflow
-        redirectURIs:
-          - https://argo-workflows.imjoseangel.eu.org/oauth2/callback
-        secretEnv: ARGO_WORKFLOWS_SSO_CLIENT_SECRET
