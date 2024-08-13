@@ -10,15 +10,3 @@ data:
   resource.customizations.ignoreDifferences.admissionregistration.k8s.io_MutatingWebhookConfiguration: |
     jsonPointers:
     - /webhooks/0/namespaceSelector/matchExpressions
-  # Kustomize sees the value of dex.config as a single string instead of yaml. It will not merge
-  # Dex settings, but instead it will replace the entire configuration with the settings below,
-  # so add these to the existing config instead of setting them in a separate file
-  dex.config: |
-    # Setting staticClients allows Argo Workflows to use Argo CD's Dex installation for authentication
-    staticClients:
-      # This is the OIDC client ID in plaintext
-      - id: argo-workflows-sso
-        name: Argo Workflow
-        redirectURIs:
-          - https://argo-workflows.imjoseangel.eu.org/oauth2/callback
-        secretEnv: ARGO_WORKFLOWS_SSO_CLIENT_SECRET
