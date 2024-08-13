@@ -4,7 +4,7 @@ kind: Secret
 metadata:
   name: argo-workflows-sso
 data:
-  # client-id is 'argo-workflows-sso'
-  client-id: YXJnby13b3JrZmxvd3Mtc3Nv
-  # client-secret is 'cc217ae4-5425-412b-abd0-074332b64373'
-  client-secret: Y2MyMTdhZTQtNTQyNS00MTJiLWFiZDAtMDc0MzMyYjY0Mzcz
+  # client-id is 'my-client-id-1234-1234'
+  client-id: bXktY2xpZW50LWlkLTEyMzQtMTIzNAo=
+  # client-secret is 'my-client-secret-very-secret'
+  client-secret: bXktY2xpZW50LXNlY3JldC12ZXJ5LXNlY3JldAo=

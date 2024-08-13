@@ -10,3 +10,11 @@ data:
   resource.customizations.ignoreDifferences.admissionregistration.k8s.io_MutatingWebhookConfiguration: |
     jsonPointers:
     - /webhooks/0/namespaceSelector/matchExpressions
+  dex.config: |
+    # Setting staticClients allows ArgoWorkflows to use ArgoCD's Dex installation for authentication
+    staticClients:
+      - id: my-client-id-1234-1234
+        name: Argo Workflow
+        redirectURIs:
+          - https://argo-workflows.imjoseangel.eu.org/oauth2/callback
+        secretEnv: ARGO_WORKFLOWS_SSO_CLIENT_SECRET
