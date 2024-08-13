@@ -6,6 +6,7 @@ namespace: argo-workflows
 
 resources:
 - https://github.com/argoproj/argo-workflows/releases/latest/download/install.yaml
+- argo-workflows-controller-configmap.yaml
 - argo-workflows-controller-pdb.yaml
 - argo-workflows-sso.yaml
 - clusterrole.yaml
