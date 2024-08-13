@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: argoworkflow
+  name: argo-workflows
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "10"
@@ -15,13 +15,13 @@ spec:
         - cluster: in-cluster
   template:
     metadata:
-      name: "argoworkflow"
+      name: "argo-workflows"
     spec:
       destination:
         name: "{{cluster}}"
       project: default
       source:
-        path: argoworkflow
+        path: argo-workflows
         repoURL: https://github.com/imjoseangel/k8s-gitops.git
         targetRevision: HEAD
       syncPolicy:
@@ -32,7 +32,7 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: argoevents
+  name: argo-events
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "20"
@@ -45,13 +45,13 @@ spec:
         - cluster: in-cluster
   template:
     metadata:
-      name: "argoevents"
+      name: "argo-events"
     spec:
       destination:
         name: "{{cluster}}"
       project: default
       source:
-        path: argoevents
+        path: argo-events
         repoURL: https://github.com/imjoseangel/k8s-gitops.git
         targetRevision: HEAD
       syncPolicy:
