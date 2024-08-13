@@ -11,6 +11,7 @@ This repository demonstrates how to deploy a self-managed instance of **ArgoCD**
 - **Kind Cluster**: Easily deploy on a Kind Cluster.
 - **Automatic SSL/TLS Certificates**: Seamlessly manage certificates with cert-manager.
 - **Cloudflare DNS Integration**: Leverage Cloudflare for DNS management and enhanced security.
+- **Argo Workflows**: Manage complex workflows and pipeline orchestration.
 
 ---
 
@@ -115,7 +116,22 @@ Login with the default credentials:
 
 ### 6️⃣ Verify Deployment
 
-Once logged in, confirm that all the components are in sync:
+Once logged in, confirm that all the components are in sync.
+
+
+### 7️⃣ Access the Argo Workflows UI
+
+In this demo, get your token running (SSO with ArgoCD DEX [Recommended](https://argo-workflows.readthedocs.io/en/latest/argo-server-sso-argocd/)):
+
+```bash
+kubectl get secret -n workflow argo-reader-user.service-account-token -o=jsonpath='{.data.token}'
+```
+
+Open your browser and navigate to:
+
+👉 [https://argo-workflows.imjoseangel.eu.org](https://argo-workflows.imjoseangel.eu.org)
+
+Enter your token
 
 ---
 

@@ -9,6 +9,7 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     cert-manager.io/cluster-issuer: "cloudflare-issuer"
+    acme.cert-manager.io/dns01-provider: cloudflare
 spec:
   ingressClassName: nginx
   rules:
