@@ -10,7 +10,3 @@ data:
   resource.customizations.ignoreDifferences.admissionregistration.k8s.io_MutatingWebhookConfiguration: |
     jsonPointers:
     - /webhooks/0/namespaceSelector/matchExpressions
-  dex.config: |
-    logger:
-      level: debug
-      format: json
