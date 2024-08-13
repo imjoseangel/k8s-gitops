@@ -76,7 +76,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: cloudflare-api-token-secret
-  namespace: argocd
+  namespace: cert-manager
 type: Opaque
 stringData:
   api-token: <API Token>
@@ -124,6 +124,8 @@ Once logged in, confirm that all the components are in sync:
 - [ArgoCD Documentation](https://argo-cd.readthedocs.io/en/stable/)
 - [Kind Documentation](https://kind.sigs.k8s.io/docs/)
 - [Kubernetes Documentation](https://kubernetes.io/docs/)
+- [`cert-manager` Documentation](https://cert-manager.io/docs/)
+- [Cloudflare API Documentation](https://developers.cloudflare.com/api/)
 
 ---
 
