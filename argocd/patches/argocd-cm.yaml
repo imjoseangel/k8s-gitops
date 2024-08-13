@@ -10,13 +10,3 @@ data:
   resource.customizations.ignoreDifferences.admissionregistration.k8s.io_MutatingWebhookConfiguration: |
     jsonPointers:
     - /webhooks/0/namespaceSelector/matchExpressions
-  dex.config: |
-    logger:
-      level: debug
-      format: json
-    staticClients:
-      - id: argo-workflows-sso
-        name: Argo Workflow
-        redirectURIs:
-          - https://argo-workflows.imjoseangel.eu.org/oauth2/callback
-        secretEnv: ARGO_WORKFLOWS_SSO_CLIENT_SECRET
