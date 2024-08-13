@@ -118,13 +118,12 @@ Login with the default credentials:
 
 Once logged in, confirm that all the components are in sync.
 
-
 ### 7️⃣ Access the Argo Workflows UI
 
 In this demo, get your token running (SSO with ArgoCD DEX [Recommended](https://argo-workflows.readthedocs.io/en/latest/argo-server-sso-argocd/)):
 
 ```bash
-kubectl get secret -n workflow argo-reader-user.service-account-token -o=jsonpath='{.data.token}'
+echo "Bearer $(kubectl get secret -n workflow argo-reader-user.service-account-token -o=jsonpath='{.data.token}' | base64 --decode)"
 ```
 
 Open your browser and navigate to:
