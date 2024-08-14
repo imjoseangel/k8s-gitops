@@ -10,13 +10,3 @@ data:
   resource.customizations.ignoreDifferences.admissionregistration.k8s.io_MutatingWebhookConfiguration: |
     jsonPointers:
     - /webhooks/0/namespaceSelector/matchExpressions
-  dex.config: |
-    connectors:
-      - type: github
-        id: github
-        name: GitHub
-        config:
-          clientID: $dex-secret:clientID
-          clientSecret: $dex-secret:clientSecret
-          orgs:
-           - name: imjoseangel

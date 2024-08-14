@@ -16,6 +16,5 @@ data:
     p, role:org-admin, logs, get, *, allow
     p, role:org-admin, exec, create, */*, allow
     p, role:org-admin, projects, get, */*, allow
-    g, imjoseangel:imjoseangel, role:org-admin
+    g, "939da4f6-ffb2-4e2b-9b45-50d7873530ad", role:org-admin
   policy.default: role:readonly
-  scopes: [email]
