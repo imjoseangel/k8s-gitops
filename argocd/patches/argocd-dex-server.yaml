@@ -9,8 +9,13 @@ spec:
       containers:
         - name: dex
           env:
-            - name: ARGO_WORKFLOWS_SSO_CLIENT_SECRET
+            - name: GITHUB_CLIENT_ID
               valueFrom:
                 secretKeyRef:
-                  name: argo-workflows-sso
-                  key: client-secret
+                  name: argocd-secret
+                  key: github.clientId
+            - name: GITHUB_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: argocd-secret
+                  key: github.clientSecret
