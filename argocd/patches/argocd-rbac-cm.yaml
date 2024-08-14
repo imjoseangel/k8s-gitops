@@ -5,21 +5,16 @@ metadata:
   name: argocd-rbac-cm
 data:
   policy.csv: |
-    p, role:rm-admin, applications, get, */*, allow
-    p, role:rm-admin, applications, sync, */*, allow
-    p, role:rm-admin, applications, update, */*, allow
-    p, role:rm-admin, applications, override, */*, allow
-    p, role:rm-admin, applications, action/apps/*/restart, */*, allow
-    p, role:rm-admin, applications, action/batch/*/create-job, */*, allow
-    p, role:rm-admin, clusters, get, *, allow
-    p, role:rm-admin, repositories, get, *, allow
-    p, role:rm-admin, logs, get, *, allow
-    p, role:rm-admin, exec, create, */*, allow
-    p, role:rm-admin, projects, get, */*, allow
-    p, role:rm-sync, applications, sync, microservices/*, allow
-    p, role:rm-devel, applications, sync, microservices/*, allow
-    p, role:rm-devel, applications, action/apps/Deployment/restart, microservices/*, allow
-    g, "group-id-one", role:rm-admin
-    g, "group-id-two", role:rm-devel
-    g, example, role:rm-sync
+    p, role:org-admin, applications, get, */*, allow
+    p, role:org-admin, applications, sync, */*, allow
+    p, role:org-admin, applications, update, */*, allow
+    p, role:org-admin, applications, override, */*, allow
+    p, role:org-admin, applications, action/apps/*/restart, */*, allow
+    p, role:org-admin, applications, action/batch/*/create-job, */*, allow
+    p, role:org-admin, clusters, get, *, allow
+    p, role:org-admin, repositories, get, *, allow
+    p, role:org-admin, logs, get, *, allow
+    p, role:org-admin, exec, create, */*, allow
+    p, role:org-admin, projects, get, */*, allow
+    g, org:imjoseangel, role:org-admin
   policy.default: role:readonly
