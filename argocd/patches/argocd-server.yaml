@@ -12,13 +12,3 @@ spec:
           env:
           - name: ARGOCD_API_SERVER_REPLICAS
             value: "1"
-          - name: GITHUB_CLIENT_ID
-            valueFrom:
-              secretKeyRef:
-                name: argocd-secret
-                key: github.clientId
-          - name: GITHUB_CLIENT_SECRET
-            valueFrom:
-              secretKeyRef:
-                name: argocd-secret
-                key: github.clientSecret
