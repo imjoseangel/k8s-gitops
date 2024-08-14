@@ -16,5 +16,5 @@ data:
     p, role:org-admin, logs, get, *, allow
     p, role:org-admin, exec, create, */*, allow
     p, role:org-admin, projects, get, */*, allow
-    g, imjoseangel:imjoseangel, role:org-admin
+    g, imjoseangel, role:org-admin
   policy.default: role:readonly
