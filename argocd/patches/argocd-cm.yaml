@@ -16,7 +16,7 @@ data:
         id: github
         name: GitHub
         config:
-          clientID: Ov23lijx4ldbIfpr8dT6
-          clientSecret: $dex.github.clientSecret
+          clientID: $GITHUB_CLIENT_ID
+          clientSecret: $GITHUB_CLIENT_SECRET
           orgs:
-          - name: imjoseangel
+           - name: imjoseangel
