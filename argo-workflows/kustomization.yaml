@@ -9,7 +9,6 @@ resources:
 - resources
 
 patches:
-  - path: patches/workflow-controller-configmap.yaml
   - patch: |-
       apiVersion: apps/v1
       kind: Deployment
