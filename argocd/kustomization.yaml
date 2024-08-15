@@ -23,6 +23,7 @@ patches:
   - path: patches/argocd-cmd-params-cm.yaml
   - path: patches/argocd-rbac-cm.yaml
   - path: patches/argocd-server.yaml
+  - path: patches/argocd-dex-server.yaml
   - patch: |-
       apiVersion: apps/v1
       kind: Deployment
