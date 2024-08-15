@@ -1,0 +1,12 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- argo-workflows-controller-pdb.yaml
+- argo-workflows-sso.yaml
+- clusterrole.yaml
+- clusterrolebinding.yaml
+- ingress.yaml
+- namespace.yaml
+- serviceaccount.yaml

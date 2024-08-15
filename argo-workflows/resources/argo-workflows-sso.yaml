@@ -1,0 +1,8 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: argo-workflows-sso
+data:
+  client-id: NWQ0NWUzNzYtYzZiMi00YjVjLWEwMTMtYzRjN2QzYjU0OWJl
+  client-secret: ODE2ODE3MTYtNzExZi00MDY5LWI0MmMtYWRjYmQ3YmY3NWZh
