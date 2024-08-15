@@ -19,6 +19,9 @@ patches:
       spec:
         template:
           spec:
+            hostAliases:
+              - ip: "10.96.128.103"
+                hostnames: argocd.imjoseangel.eu.org
             containers:
               - name: argo-server
                 args:

@@ -6,7 +6,7 @@ metadata:
 data:
   sso: |
     # This is the root URL of the OIDC provider (required).
-    issuer: https://argocd-server.argocd.svc.cluster.local/api/dex
+    issuer: https://argocd.imjoseangel.eu.org/api/dex
     # This is name of the secret and the key in it that contain OIDC client
     # ID issued to the application by the provider (required).
     clientId:
@@ -21,5 +21,3 @@ data:
     # be in the form <argo-server-root-url>/oauth2/callback. It must be
     # browser-accessible.
     redirectUrl: https://argo-workflows.imjoseangel.eu.org/oauth2/callback
-    # Skip TLS verify, not recommended in production environments. Useful for testing purposes. >= v3.2.4
-    insecureSkipVerify: true
