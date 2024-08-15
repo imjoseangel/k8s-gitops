@@ -9,12 +9,13 @@ resources:
 - resources
 
 patches:
+  - path: patches/workflow-controller-configmap.yaml
   - patch: |-
       apiVersion: apps/v1
       kind: Deployment
       metadata:
         name: argo-server
-        namespace: argo-workflows
+        namespace: argo
       spec:
         template:
           spec:
@@ -23,4 +24,3 @@ patches:
                 args:
                   - server
                   - --namespaced
-                  - --auth-mode=sso
