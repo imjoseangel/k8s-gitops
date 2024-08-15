@@ -21,5 +21,3 @@ data:
     # be in the form <argo-server-root-url>/oauth2/callback. It must be
     # browser-accessible.
     redirectUrl: https://argo-workflows.imjoseangel.eu.org/oauth2/callback
-    # Skip TLS verify, not recommended in production environments. Useful for testing purposes. >= v3.2.4
-    insecureSkipVerify: true
