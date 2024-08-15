@@ -23,4 +23,4 @@ data:
         redirectURI: https://argocd.imjoseangel.eu.org/api/dex/callback
         usernameAttr: email
         emailAttr: email
-        groupsAttr: groups
+        groupsAttr: group
