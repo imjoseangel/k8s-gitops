@@ -10,5 +10,5 @@ spec:
       containers:
         - name: argocd-server
           env:
-          - name: ARGOCD_API_SERVER_REPLICAS
-            value: "1"
+            - name: ARGOCD_API_SERVER_REPLICAS
+              value: "1"
