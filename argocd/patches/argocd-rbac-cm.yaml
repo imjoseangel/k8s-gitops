@@ -5,16 +5,17 @@ metadata:
   name: argocd-rbac-cm
 data:
   policy.csv: |
-    p, role:org-admin, applications, get, */*, allow
-    p, role:org-admin, applications, sync, */*, allow
-    p, role:org-admin, applications, update, */*, allow
-    p, role:org-admin, applications, override, */*, allow
-    p, role:org-admin, applications, action/apps/*/restart, */*, allow
-    p, role:org-admin, applications, action/batch/*/create-job, */*, allow
-    p, role:org-admin, clusters, get, *, allow
-    p, role:org-admin, repositories, get, *, allow
-    p, role:org-admin, logs, get, *, allow
-    p, role:org-admin, exec, create, */*, allow
-    p, role:org-admin, projects, get, */*, allow
-    g, "939da4f6-ffb2-4e2b-9b45-50d7873530ad", role:org-admin
+    p, role:argocd-admin, applications, get, */*, allow
+    p, role:argocd-admin, applications, sync, */*, allow
+    p, role:argocd-admin, applications, update, */*, allow
+    p, role:argocd-admin, applications, override, */*, allow
+    p, role:argocd-admin, applications, action/apps/*/restart, */*, allow
+    p, role:argocd-admin, applications, action/batch/*/create-job, */*, allow
+    p, role:argocd-admin, clusters, get, *, allow
+    p, role:argocd-admin, repositories, get, *, allow
+    p, role:argocd-admin, logs, get, *, allow
+    p, role:argocd-admin, exec, create, */*, allow
+    p, role:argocd-admin, projects, get, */*, allow
+    g, argocd-admins, role:argocd-admin
   policy.default: role:readonly
+  scopes: '[email,groups]'

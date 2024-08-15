@@ -10,3 +10,17 @@ data:
   resource.customizations.ignoreDifferences.admissionregistration.k8s.io_MutatingWebhookConfiguration: |
     jsonPointers:
     - /webhooks/0/namespaceSelector/matchExpressions
+  dex.config: |
+    logger:
+      level: debug
+    connectors:
+    - type: saml
+      id: okta
+      name: Okta
+      config:
+        ssoURL: $okta-secret:sso-url
+        caData: $okta-secret:sso-cer
+        redirectURI: https://argocd.imjoseangel.eu.org/api/dex/callback
+        usernameAttr: email
+        emailAttr: email
+        groupsAttr: group
