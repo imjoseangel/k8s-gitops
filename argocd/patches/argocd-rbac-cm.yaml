@@ -18,4 +18,4 @@ data:
     p, role:argocd-admin, projects, get, */*, allow
     g, argocd-admins, role:argocd-admin
   policy.default: role:readonly
-  scopes: '[groups]'
+  scopes: '[group]'
