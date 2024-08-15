@@ -13,14 +13,15 @@ data:
   dex.config: |
     logger:
       level: debug
+      format: json
     connectors:
     - type: saml
       id: okta
       name: Okta
       config:
         ssoURL: $okta-secret:sso-url
-        caData: $okta-secret:sso-cer
-        redirectURI: https://argocd.imjoseangel.eu.org/api/dex/callback
+        caData: |
+          $okta-secret:sso-cer
         usernameAttr: email
         emailAttr: email
         groupsAttr: group
