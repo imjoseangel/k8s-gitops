@@ -24,6 +24,7 @@ patches:
   - path: patches/argocd-dex-server.yaml
   - path: patches/argocd-rbac-cm.yaml
   - path: patches/argocd-server.yaml
+  - path: patches/argocd-service.yaml
   - patch: |-
       apiVersion: apps/v1
       kind: Deployment
