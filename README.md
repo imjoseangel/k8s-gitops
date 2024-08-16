@@ -87,7 +87,41 @@ stringData:
 
 More info at [Cloudflare Documentation](https://cert-manager.io/docs/configuration/acme/dns01/cloudflare/)
 
-### 3️⃣ Deploy ArgoCD
+### 3️⃣ Configure Okta SSO for ArgoCD
+
+To secure access to ArgoCD with Okta SSO, follow these steps:
+
+**1. Create an Okta developer account:**
+
+Access to [Okta Developer](https://developer.okta.com/signup/) and follow the instructions.
+
+**2. Create an Application in Okta:**
+
+- Sign in to your Okta admin dashboard.
+- Navigate to **Applications > Applications** and click **Create App Integration.**
+- Set up the application following the [ArgoCD Documentation](https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/okta/)
+
+Implement Okta SSO with the following secret:
+
+```yaml
+---
+apiVersion: v1
+data:
+  sso-url: <base64 url>
+  sso-cer: <base64 of base64 cer>
+kind: Secret
+metadata:
+  labels:
+    app.kubernetes.io/component: server
+    app.kubernetes.io/instance: argocd
+    app.kubernetes.io/name: okta-secret
+    app.kubernetes.io/part-of: argocd
+  name: okta-secret
+  namespace: argocd
+type: Opaque
+```
+
+### 4️⃣ Deploy ArgoCD
 
 Once your cluster is up and running, deploy ArgoCD using the following command:
 
@@ -95,7 +129,7 @@ Once your cluster is up and running, deploy ArgoCD using the following command:
 kubectl kustomize https://github.com/imjoseangel/k8s-gitops/argocd?ref=HEAD | kubectl apply -f -
 ```
 
-### 4️⃣ Configure /etc/hosts
+### 5️⃣  Configure /etc/hosts
 
 To access the ArgoCD UI locally, you’ll need to add the following entries to your `/etc/hosts` file:
 
@@ -103,7 +137,7 @@ To access the ArgoCD UI locally, you’ll need to add the following entries to y
 127.0.0.1    localhost argocd.imjoseangel.eu.org argo-workflow.imjoseangel.eu.org
 ```
 
-### 5️⃣ Access the ArgoCD UI
+### 6️⃣ Access the ArgoCD UI
 
 Open your browser and navigate to:
 
@@ -116,11 +150,13 @@ Login with the default credentials:
 
 > **Note:** You might want to change the password immediately after logging in.
 
-### 6️⃣ Verify Deployment
+If Okta is prepared, use the **Login via Okta** button.
+
+### 7️⃣ Verify Deployment
 
 Once logged in, confirm that all the components are in sync.
 
-### 7️⃣ Access the Argo Workflows UI
+### 8️⃣ Access the Argo Workflows UI (Without SSO)
 
 In this demo, get your token running (SSO with ArgoCD DEX [Recommended](https://argo-workflows.readthedocs.io/en/latest/argo-server-sso-argocd/)):
 
