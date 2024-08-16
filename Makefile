@@ -15,16 +15,13 @@ help: ## Display this help
 apply: ## Deploys ArgoCD Application and Resources
 	$(info $(DATE) - deploying argocd)
 	@kustomize build argocd | kubectl apply -f -
-	$(info $(DATE) - sleeping 10 seconds)
 	@sleep 10
-	$(info $(DATE) - deploying resources)
 	@kustomize build argocd-resources | kubectl apply -f -
 
 .PHONY: delete
 delete: ## Deletes ArgoCD Application and Resources
-	$(info $(DATE) - deleting resources)
-	@kustomize build argocd-resources | kubectl delete -f -
 	$(info $(DATE) - deleting argocd)
+	@kustomize build argocd-resources | kubectl delete -f -
 	@kustomize build argocd | kubectl delete -f -
 
 .PHONY: clean
