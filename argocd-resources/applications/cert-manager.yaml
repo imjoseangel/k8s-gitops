@@ -3,7 +3,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: cert-manager
-  namespace: argocd
 spec:
   syncPolicy:
     preserveResourcesOnDeletion: true

@@ -3,7 +3,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: argo-workflows
-  namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "10"
 spec:
@@ -33,7 +32,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: argo-events
-  namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "20"
 spec:

@@ -3,7 +3,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: external
-  namespace: argocd
 spec:
   clusterResourceWhitelist:
   - group: '*'
