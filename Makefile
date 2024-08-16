@@ -1,3 +1,20 @@
+#****************************************************************************
+#
+#    GNU/       __  __       _         __ _ _
+#      /gmake  |  \/  | __ _| | _____ / _(_) | ___
+#     /        | |\/| |/ _` | |/ / _ \ |_| | |/ _ \
+#    /MIT      | |  | | (_| |   <  __/  _| | |  __/
+#              |_|  |_|\__,_|_|\_\___|_| |_|_|\___|
+#
+#                           ARGOCD
+#
+#   FILENAME: Makefile  AUTHOR: "Jose Angel Munoz"
+#   COPYRIGHT: "2024 Jose Angel Munoz" LICENSE: "MIT"
+#   PURPOSE: ArgoCD Deployment
+#
+#                This file probably requires GNU gmake.
+#****************************************************************************
+
 .DEFAULT_GOAL:=help
 
 PATH     := $(PATH):$(PWD)/bin
