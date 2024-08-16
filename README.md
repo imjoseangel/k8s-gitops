@@ -12,6 +12,7 @@ This repository demonstrates how to deploy a self-managed instance of **ArgoCD**
 - **Automatic SSL/TLS Certificates**: Seamlessly manage certificates with cert-manager.
 - **Cloudflare DNS Integration**: Leverage Cloudflare for DNS management and enhanced security.
 - **Argo Workflows**: Manage complex workflows and pipeline orchestration.
+- **Okta SSO Integration**: Secure access to ArgoCD using Okta Single Sign-On (SSO).
 
 ---
 
@@ -21,6 +22,7 @@ Before you begin, ensure you have the following tools installed:
 
 - [Kind](https://kind.sigs.k8s.io/) - A tool for running local Kubernetes clusters using Docker.
 - [kubectl](https://kubernetes.io/docs/tasks/tools/) - Command line tool for interacting with your Kubernetes cluster.
+- [Make](https://www.gnu.org/software/make/) - A tool to simplify the build and deployment process.
 
 ---
 
@@ -141,6 +143,27 @@ Enter your token
 - [Kubernetes Documentation](https://kubernetes.io/docs/)
 - [`cert-manager` Documentation](https://cert-manager.io/docs/)
 - [Cloudflare API Documentation](https://developers.cloudflare.com/api/)
+- [Okta Documentation](https://developer.okta.com/docs/guides/)
+
+---
+
+## 📦 Makefile
+
+To simplify your workflow, a `Makefile` is provided to automate common tasks.
+
+### Available Commands
+
+- **Deploy ArgoCD:** Deploys ArgoCD to the cluster.
+
+```bash
+make deploy-argocd
+```
+
+- **Delete ArgoCD:** Deletes ArgoCD from the cluster.
+
+```bash
+make delete-argocd
+```
 
 ---
 
@@ -161,3 +184,5 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 Special thanks to the contributors of this project for their continuous effort.
 
 Enjoy using ArgoCD! If you encounter any issues, feel free to open an issue on this repository. 😊
+
+---
