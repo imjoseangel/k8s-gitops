@@ -51,3 +51,8 @@ clean: ## Cleanup the project folders with git clean
 cluster: ## Create ArgoCD Cluster
 	$(info $(DATE) - creating cluster)
 	kind create cluster --name argocd-cluster --config=kind-cluster/cluster.yaml
+
+.PHONY: destroy
+destroy: ## Destroy ArgoCD Cluster
+	$(info $(DATE) - destroying cluster)
+	kind delete cluster --name argocd-cluster
