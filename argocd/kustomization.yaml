@@ -14,9 +14,6 @@ resources:
   # configuration
   - configuration
 
-  # resources
-  - resources
-
 patches:
   - path: patches/argocd-application-controller.yaml
   - path: patches/argocd-cm.yaml
