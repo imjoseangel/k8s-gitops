@@ -21,5 +21,12 @@ data:
     # be in the form <argo-server-root-url>/oauth2/callback. It must be
     # browser-accessible.
     redirectUrl: https://argo-workflows.imjoseangel.eu.org/oauth2/callback
+    # Additional scopes to request. Typically needed for SSO RBAC. >= v2.12
+    scopes:
+      - groups
+      - email
+    # RBAC Config. >= v2.12
+    rbac:
+      enabled: true
     # Skip TLS verify, not recommended in production environments. Useful for testing purposes. >= v3.2.4
     insecureSkipVerify: true
