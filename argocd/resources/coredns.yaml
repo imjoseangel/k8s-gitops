@@ -16,7 +16,8 @@ spec:
       name: coredns
     spec:
       destination:
-        name: "{{name}}"
+        name: "{{cluster}}"
+        namespace: kube-system
       project: default
       source:
         path: coredns
