@@ -1,0 +1,26 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-config
+  namespace: argocd
+spec:
+  generators:
+  - list:
+      elements:
+        - cluster: in-cluster
+  template:
+    metadata:
+      name: cluster-config
+    spec:
+      destination:
+        name: "{{cluster}}"
+      project: default
+      source:
+        path: cluster-config
+        repoURL: https://github.com/imjoseangel/k8s-gitops.git
+        targetRevision: HEAD
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true

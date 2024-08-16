@@ -23,18 +23,6 @@ patches:
   - path: patches/argocd-cmd-params-cm.yaml
   - path: patches/argocd-dex-server.yaml
   - path: patches/argocd-rbac-cm.yaml
+  - path: patches/argocd-repo-server.yaml
   - path: patches/argocd-server.yaml
   - path: patches/argocd-service.yaml
-  - patch: |-
-      apiVersion: apps/v1
-      kind: Deployment
-      metadata:
-        name: argocd-repo-server
-      spec:
-        template:
-          spec:
-            containers:
-              - name: argocd-repo-server
-                env:
-                  - name: ARGOCD_EXEC_TIMEOUT
-                    value: 240s
