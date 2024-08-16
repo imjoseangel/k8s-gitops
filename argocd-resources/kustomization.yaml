@@ -7,5 +7,4 @@ resources:
   - argocd.yaml
   - cert-manager.yaml
   - cluster-config.yaml
-  - coredns.yaml
   - ingress.yaml
