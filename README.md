@@ -146,7 +146,7 @@ Open your browser and navigate to:
 Login with the default credentials:
 
 - **Username:** `admin`
-- **Password:** (generated on first-time setup)
+- **Password:** `password`
 
 > **Note:** You might want to change the password immediately after logging in.
 
