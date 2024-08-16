@@ -15,12 +15,13 @@
 #                This file probably requires GNU gmake.
 #****************************************************************************
 
-.DEFAULT_GOAL:=help
+.DEFAULT_GOAL :=help
 
-PATH     := $(PATH):$(PWD)/bin
-OS       := $(shell uname -s | tr '[:upper:]' '[:lower:]' | sed 's/darwin/apple-darwin/' | sed 's/linux/linux-gnu/')
-ARCH     := $(shell uname -m)
-DATE     := $(shell date -u +"%Y-%m-%dT%H:%M:%SZ")
+PATH          := $(PATH):$(PWD)/bin
+OS            := $(shell uname -s | tr '[:upper:]' '[:lower:]' | sed 's/darwin/apple-darwin/' | sed 's/linux/linux-gnu/')
+ARCH          := $(shell uname -m)
+DATE          := $(shell date -u +"%Y-%m-%dT%H:%M:%SZ")
+SHELL         := bash
 
 .POSIX:
 
@@ -45,3 +46,8 @@ delete: ## Deletes ArgoCD Application and Resources
 clean: ## Cleanup the project folders with git clean
 	$(info $(DATE) - cleaning up)
 	@git clean -dfx
+
+.PHONY: cluster
+cluster: ## Create ArgoCD Cluster
+	$(info $(DATE) - creating cluster)
+	kind create cluster --name argocd-cluster --config=kind-cluster/cluster.yaml
