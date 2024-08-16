@@ -33,7 +33,7 @@ help: ## Display this help
 deploy: ## Deploys ArgoCD Application and Resources
 	$(info $(DATE) - deploying argocd)
 	@kustomize build argocd | kubectl apply -f -
-	@sleep 10
+	@kubectl wait --for=condition=Ready pods -l app.kubernetes.io/name=argocd-server -n argocd
 	@kustomize build argocd-resources | kubectl apply -f -
 
 .PHONY: delete
