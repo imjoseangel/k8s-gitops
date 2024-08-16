@@ -1,0 +1,7 @@
+---
+operation:
+  initiatedBy:
+    username: admin
+  sync:
+    syncStrategy:
+      hook: {}
