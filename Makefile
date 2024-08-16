@@ -15,7 +15,7 @@
 #                This file probably requires GNU gmake.
 #****************************************************************************
 
-.DEFAULT_GOAL :=help
+.DEFAULT_GOAL := help
 
 PATH          := $(PATH):$(PWD)/bin
 OS            := $(shell uname -s | tr '[:upper:]' '[:lower:]' | sed 's/darwin/apple-darwin/' | sed 's/linux/linux-gnu/')
@@ -48,11 +48,11 @@ clean: ## Cleanup the project folders with git clean
 	@git clean -dfx
 
 .PHONY: cluster
-cluster: ## Create ArgoCD Cluster
+cluster: ## Creates Kind Cluster
 	$(info $(DATE) - creating cluster)
 	kind create cluster --name argocd-cluster --config=kind-cluster/cluster.yaml
 
 .PHONY: destroy
-destroy: ## Destroy ArgoCD Cluster
+destroy: ## Destroys Kind Cluster
 	$(info $(DATE) - destroying cluster)
 	kind delete cluster --name argocd-cluster

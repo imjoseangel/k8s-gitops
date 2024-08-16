@@ -201,6 +201,18 @@ make deploy
 make delete
 ```
 
+- **Create K8S Cluster:**  Creates Kind Kubernetes Cluster.
+
+```bash
+make cluster
+```
+
+- **Destroy K8S Cluster:**  Destroys Kind Kubernetes Cluster.
+
+```bash
+make destroy
+```
+
 ---
 
 ## 🛡️ License
