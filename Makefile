@@ -48,11 +48,6 @@ delete: ## Deletes ArgoCD Application and Resources
 	@kustomize build argocd-resources | kubectl delete -f -
 	@kustomize build argocd | kubectl delete -f -
 
-.PHONY: clean
-clean: ## Cleanup the project folders with git clean
-	$(info $(DATE) - cleaning up)
-	@git clean -dfx
-
 .PHONY: cluster
 cluster: ## Creates Kind Cluster
 	$(info $(DATE) - creating cluster)
