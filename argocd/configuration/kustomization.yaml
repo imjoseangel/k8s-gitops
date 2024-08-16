@@ -5,4 +5,3 @@ kind: Kustomization
 resources:
   - argo-workflows-sso.yaml
   - argocd-ingress.yaml
-  - argocd-projects.yaml
