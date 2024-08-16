@@ -50,9 +50,9 @@ clean: ## Cleanup the project folders with git clean
 .PHONY: cluster
 cluster: ## Creates Kind Cluster
 	$(info $(DATE) - creating cluster)
-	kind create cluster --name argocd-cluster --config=kind-cluster/cluster.yaml
+	kind create cluster --name argocd --config=kind-cluster/cluster.yaml
 
 .PHONY: destroy
 destroy: ## Destroys Kind Cluster
 	$(info $(DATE) - destroying cluster)
-	kind delete cluster --name argocd-cluster
+	kind delete cluster --name argocd
