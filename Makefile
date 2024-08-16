@@ -33,7 +33,7 @@ help: ## Display this help
 deploy: ## Deploys ArgoCD Application and Resources
 	$(info $(DATE) - deploying argocd)
 	@kustomize build argocd | kubectl apply -f -
-	@kubectl wait --for=condition=Ready pods -l app.kubernetes.io/name=argocd-server -n argocd
+	@kubectl wait --for=condition=Ready pods -l app.kubernetes.io/name=argocd-server -n argocd --timeout=60s
 	@kustomize build argocd-resources | kubectl apply -f -
 	@kubectl patch -n argocd app ingress-nginx --patch-file argocd-resources/installation/sync-hook.yaml --type merge
 	@kubectl patch -n argocd app argocd --patch-file argocd-resources/installation/sync-hook.yaml --type merge
