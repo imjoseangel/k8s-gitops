@@ -13,3 +13,7 @@ spec:
             - server
             - --namespaced
             - --auth-mode=sso
+      dnsConfig:
+        nameservers:
+          - 8.8.8.8
+          - 10.96.0.10
