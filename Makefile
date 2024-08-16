@@ -28,15 +28,15 @@ DATE     := $(shell date -u +"%Y-%m-%dT%H:%M:%SZ")
 help: ## Display this help
 	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m\033[0m\n\nTargets:\n"} /^[a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-10s\033[0m %s\n", $$1, $$2 }' $(MAKEFILE_LIST)
 
-.PHONY: deploy-argocd
-deploy-argocd: ## Deploys ArgoCD Application and Resources
+.PHONY: deploy
+deploy: ## Deploys ArgoCD Application and Resources
 	$(info $(DATE) - deploying argocd)
 	@kustomize build argocd | kubectl apply -f -
 	@sleep 10
 	@kustomize build argocd-resources | kubectl apply -f -
 
-.PHONY: delete-argocd
-delete-argocd: ## Deletes ArgoCD Application and Resources
+.PHONY: delete
+delete: ## Deletes ArgoCD Application and Resources
 	$(info $(DATE) - deleting argocd)
 	@kustomize build argocd-resources | kubectl delete -f -
 	@kustomize build argocd | kubectl delete -f -

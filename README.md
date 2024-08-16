@@ -192,13 +192,13 @@ To simplify your workflow, a `Makefile` is provided to automate common tasks.
 - **Deploy ArgoCD:** Deploys ArgoCD to the cluster.
 
 ```bash
-make deploy-argocd
+make deploy
 ```
 
 - **Delete ArgoCD:** Deletes ArgoCD from the cluster.
 
 ```bash
-make delete-argocd
+make delete
 ```
 
 ---
