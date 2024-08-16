@@ -39,6 +39,7 @@ deploy: ## Deploys ArgoCD Application and Resources
 	@sleep 30
 	@kubectl patch -n argocd app argocd --patch-file argocd-resources/installation/sync-hook.yaml --type merge
 	@kubectl patch -n argocd app ingress-nginx --patch-file argocd-resources/installation/sync-hook.yaml --type merge
+	@kubectl wait --for=jsonpath='{.status.sync.status}'=Synced applications.argoproj.io ingress-nginx -n argocd --timeout=60s
 
 .PHONY: delete
 delete: ## Deletes ArgoCD Application and Resources
