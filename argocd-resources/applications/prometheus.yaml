@@ -3,6 +3,8 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: prometheus-operator
+  annotations:
+    argocd.argoproj.io/sync-wave: "10"
 spec:
   syncPolicy:
     preserveResourcesOnDeletion: true
@@ -29,3 +31,33 @@ spec:
         syncOptions:
           - CreateNamespace=true
           - Replace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: prometheus-operator-configuration
+  annotations:
+    argocd.argoproj.io/sync-wave: "20"
+spec:
+  syncPolicy:
+    preserveResourcesOnDeletion: true
+  generators:
+    - list:
+        elements:
+          - cluster: in-cluster
+  template:
+    metadata:
+      name: prometheus-operator-configuration
+    spec:
+      destination:
+        name: "{{cluster}}"
+        namespace: prometheus-system
+      project: default
+      source:
+        path: prometheus-operator/configuration
+        repoURL: https://github.com/imjoseangel/k8s-gitops.git
+        targetRevision: HEAD
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
