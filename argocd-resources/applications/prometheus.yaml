@@ -61,3 +61,32 @@ spec:
         automated:
           selfHeal: true
           prune: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: prometheus-resources
+  annotations:
+    argocd.argoproj.io/sync-wave: "30"
+spec:
+  syncPolicy:
+    preserveResourcesOnDeletion: true
+  generators:
+    - list:
+        elements:
+          - cluster: in-cluster
+  template:
+    metadata:
+      name: prometheus-resources
+    spec:
+      destination:
+        name: "{{cluster}}"
+      project: default
+      source:
+        path: prometheus-operator/resources
+        repoURL: https://github.com/imjoseangel/k8s-gitops.git
+        targetRevision: HEAD
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
