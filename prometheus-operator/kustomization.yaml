@@ -6,8 +6,3 @@ namespace: prometheus-system
 
 resources:
   - https://github.com/prometheus-operator/prometheus-operator/releases/latest/download/bundle.yaml
-  - clusterrole.yaml
-  - clusterrolebinding.yaml
-  - prometheus.yaml
-  - serviceaccount.yaml
-  - servicemonitor.yaml
