@@ -4,6 +4,7 @@ kind: Prometheus
 metadata:
   name: prometheus
 spec:
+  externalUrl: https://prometheus.imjoseangel.eu.org
   serviceAccountName: prometheus
   serviceMonitorSelector:
     matchLabels:
