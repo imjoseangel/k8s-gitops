@@ -1,0 +1,30 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: prometheus-operator
+spec:
+  syncPolicy:
+    preserveResourcesOnDeletion: true
+  generators:
+    - list:
+        elements:
+          - cluster: in-cluster
+  template:
+    metadata:
+      name: prometheus-operator
+    spec:
+      destination:
+        name: "{{cluster}}"
+        namespace: prometheus-system
+      project: default
+      source:
+        path: prometheus-operator
+        repoURL: https://github.com/imjoseangel/k8s-gitops.git
+        targetRevision: HEAD
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
+        syncOptions:
+          - CreateNamespace=true
