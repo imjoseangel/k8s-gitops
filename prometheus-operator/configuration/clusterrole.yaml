@@ -4,27 +4,41 @@ kind: ClusterRole
 metadata:
   name: prometheus
 rules:
-- apiGroups: [""]
+- apiGroups:
+    - ""
   resources:
-  - nodes
-  - nodes/metrics
-  - services
-  - endpoints
-  - pods
-  verbs: ["get", "list", "watch"]
-- apiGroups: [""]
+    - nodes
+    - nodes/metrics
+    - services
+    - endpoints
+    - pods
+  verbs:
+    - get
+    - list
+    - watch
+- apiGroups:
+  - ""
   resources:
   - configmaps
-  verbs: ["get"]
+  verbs:
+    - get
 - apiGroups:
-  - discovery.k8s.io
+    - discovery.k8s.io
   resources:
-  - endpointslices
-  verbs: ["get", "list", "watch"]
+    - endpointslices
+  verbs:
+    - get
+    - list
+    - watch
 - apiGroups:
-  - networking.k8s.io
+    - networking.k8s.io
   resources:
-  - ingresses
-  verbs: ["get", "list", "watch"]
-- nonResourceURLs: ["/metrics"]
-  verbs: ["get"]
+    - ingresses
+  verbs:
+    - get
+    - list
+    - watch
+- nonResourceURLs:
+    - "/metrics"
+  verbs:
+    - get
