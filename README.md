@@ -134,7 +134,7 @@ kubectl kustomize https://github.com/imjoseangel/k8s-gitops/argocd?ref=HEAD | ku
 To access the ArgoCD UI locally, you’ll need to add the following entries to your `/etc/hosts` file:
 
 ```bash
-127.0.0.1    localhost argocd.imjoseangel.eu.org argo-workflow.imjoseangel.eu.org
+127.0.0.1    localhost argocd.imjoseangel.eu.org argo-workflow.imjoseangel.eu.org prometheus.imjoseangel.eu.org
 ```
 
 ### 6️⃣ Access the ArgoCD UI
