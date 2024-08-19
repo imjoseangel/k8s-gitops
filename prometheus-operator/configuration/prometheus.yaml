@@ -4,6 +4,9 @@ kind: Prometheus
 metadata:
   name: prometheus
 spec:
+  replicas: 1
+  nodeSelector:
+    kubernetes.io/os: linux
   externalUrl: https://prometheus.imjoseangel.eu.org
   serviceAccountName: prometheus
   serviceMonitorSelector:
@@ -16,7 +19,10 @@ spec:
         values:
           - argocd
           - prometheus-system
+  securityContext:
+    fsGroup: 2000
+    runAsNonRoot: true
+    runAsUser: 1000
   resources:
     requests:
       memory: 400Mi
-  enableAdminAPI: false
