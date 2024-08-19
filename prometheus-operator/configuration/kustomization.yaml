@@ -8,5 +8,6 @@ resources:
   - clusterrole.yaml
   - clusterrolebinding.yaml
   - prometheus-ingress.yaml
+  - prometheus-rules.yaml
   - prometheus-serviceaccount.yaml
   - prometheus.yaml
