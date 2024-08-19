@@ -7,5 +7,6 @@ namespace: prometheus-system
 resources:
   - clusterrole.yaml
   - clusterrolebinding.yaml
+  - prometheus-ingress.yaml
+  - prometheus-serviceaccount.yaml
   - prometheus.yaml
-  - serviceaccount.yaml
