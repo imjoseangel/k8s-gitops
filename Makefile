@@ -34,13 +34,13 @@ deploy: ## Deploys ArgoCD Application and Resources
 	$(info $(DATE) - deploying argocd)
 	@kustomize build argocd | kubectl apply -f -
 	@sleep 10
-	@kubectl wait --for=condition=Ready pods -l app.kubernetes.io/name=argocd-server -n argocd --timeout=60s
+	@kubectl wait --for=condition=Ready pods -l app.kubernetes.io/name=argocd-server -n argocd --timeout=120s
 	@kustomize build argocd-resources | kubectl apply -f -
 	@sleep 30
 	@kubectl patch -n argocd app argocd --patch-file argocd-resources/installation/sync-hook.yaml --type merge
 	@kubectl patch -n argocd app ingress-nginx --patch-file argocd-resources/installation/sync-hook.yaml --type merge
 	@kubectl patch -n argocd app cert-manager --patch-file argocd-resources/installation/sync-hook.yaml --type merge
-	@kubectl wait --for=jsonpath='{.status.sync.status}'=Synced applications.argoproj.io ingress-nginx -n argocd --timeout=60s
+	@kubectl wait --for=jsonpath='{.status.sync.status}'=Synced applications.argoproj.io ingress-nginx -n argocd --timeout=120s
 
 .PHONY: delete
 delete: ## Deletes ArgoCD Application and Resources
