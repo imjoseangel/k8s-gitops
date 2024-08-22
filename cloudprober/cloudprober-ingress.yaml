@@ -17,11 +17,11 @@ spec:
             path: /
             backend:
               service:
-                name: prometheus-operated
+                name: cloudprober
                 port:
-                  number: 9090
-      host: prometheus.imjoseangel.eu.org
+                  number: 9313
+      host: cloudprober.imjoseangel.eu.org
   tls:
     - hosts:
-      - prometheus.imjoseangel.eu.org
+      - cloudprober.imjoseangel.eu.org
       secretName: ingress-tls
