@@ -6,6 +6,7 @@ resources:
   - argo-workflows.yaml
   - argocd.yaml
   - cert-manager.yaml
+  - cloudprober.yaml
   - cluster-config.yaml
   - ingress.yaml
   - prometheus.yaml

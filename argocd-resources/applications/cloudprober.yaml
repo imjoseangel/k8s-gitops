@@ -1,0 +1,31 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cloudprober
+spec:
+  syncPolicy:
+    preserveResourcesOnDeletion: true
+  generators:
+    - list:
+        elements:
+          - cluster: in-cluster
+  template:
+    metadata:
+      name: cloudprober
+    spec:
+      destination:
+        name: "{{cluster}}"
+        namespace: cloudprober
+      project: default
+      source:
+        path: cloudprober
+        repoURL: https://github.com/imjoseangel/k8s-gitops.git
+        targetRevision: HEAD
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
+        syncOptions:
+          - CreateNamespace=true
+          - Replace=true
