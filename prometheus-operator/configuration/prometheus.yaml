@@ -18,6 +18,7 @@ spec:
         operator: In
         values:
           - argocd
+          - cloudprober
           - prometheus-system
   securityContext:
     fsGroup: 2000
