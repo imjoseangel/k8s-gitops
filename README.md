@@ -13,6 +13,7 @@ This repository demonstrates how to deploy a self-managed instance of **ArgoCD**
 - **Cloudflare DNS Integration**: Leverage Cloudflare for DNS management and enhanced security.
 - **Argo Workflows**: Manage complex workflows and pipeline orchestration.
 - **Okta SSO Integration**: Secure access to ArgoCD using Okta Single Sign-On (SSO).
+- **Observability**: With Prometheus and CloudProber.
 
 ---
 
@@ -175,11 +176,13 @@ Enter your token
 ## 📚 Additional Resources
 
 - [ArgoCD Documentation](https://argo-cd.readthedocs.io/en/stable/)
-- [Kind Documentation](https://kind.sigs.k8s.io/docs/)
-- [Kubernetes Documentation](https://kubernetes.io/docs/)
 - [`cert-manager` Documentation](https://cert-manager.io/docs/)
 - [Cloudflare API Documentation](https://developers.cloudflare.com/api/)
+- [CloudProber](https://cloudprober.org/)
+- [Kind Documentation](https://kind.sigs.k8s.io/docs/)
+- [Kubernetes Documentation](https://kubernetes.io/docs/)
 - [Okta Documentation](https://developer.okta.com/docs/guides/)
+- [Prometheus Operator](http://prometheus-operator.dev)
 
 ---
 
