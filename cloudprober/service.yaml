@@ -1,0 +1,17 @@
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cloudprober
+  labels:
+    app.kubernetes.io/name: cloudprober
+spec:
+  ports:
+    - name: web
+      port: 9313
+      protocol: TCP
+      targetPort: 9313
+  selector:
+    app.kubernetes.io/name: cloudprober
+  type: ClusterIP

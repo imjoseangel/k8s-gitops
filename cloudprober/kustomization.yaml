@@ -1,0 +1,16 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: cloudprober
+
+configMapGenerator:
+  - name: cloudprober-config
+    files:
+      - cloudprober.cfg=cloudprober.cfg
+
+resources:
+  - cloudprober-ingress.yaml
+  - deployment.yaml
+  - service.yaml
+  - servicemonitor.yaml

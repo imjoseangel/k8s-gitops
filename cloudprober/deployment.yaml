@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudprober
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: cloudprober
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: cloudprober
+    spec:
+      volumes:
+        - name: cloudprober-config
+          configMap:
+            name: cloudprober-config
+      containers:
+        - name: cloudprober
+          image: cloudprober/cloudprober
+          command: ["/cloudprober"]
+          args: ["--config_file", "/cfg/cloudprober.cfg"]
+          volumeMounts:
+            - name: cloudprober-config
+              mountPath: /cfg
+          ports:
+            - name: http
+              containerPort: 9313
+          resources:
+            limits:
+              cpu: 100m
+              memory: 100Mi
+            requests:
+              cpu: 100m
+              memory: 100Mi
