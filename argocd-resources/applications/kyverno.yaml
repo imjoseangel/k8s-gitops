@@ -1,0 +1,28 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: kyverno
+spec:
+  syncPolicy:
+    preserveResourcesOnDeletion: true
+  generators:
+    - list:
+        elements:
+          - cluster: in-cluster
+  template:
+    metadata:
+      name: kyverno
+    spec:
+      destination:
+        name: "{{cluster}}"
+        namespace: kyverno
+      project: default
+      source:
+        path: kyverno
+        repoURL: https://github.com/imjoseangel/k8s-gitops.git
+        targetRevision: HEAD
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
