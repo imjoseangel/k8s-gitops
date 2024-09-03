@@ -9,4 +9,5 @@ resources:
   - cloudprober.yaml
   - cluster-config.yaml
   - ingress.yaml
+  - kyverno.yaml
   - prometheus.yaml
