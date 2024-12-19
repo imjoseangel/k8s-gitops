@@ -9,10 +9,10 @@ spec:
     vendor: postgres
     host: postgresql-rw
     usernameSecret:
-      name: postgresql-app
+      name: keycloak-db-secret
       key: username
     passwordSecret:
-      name: postgresql-app
+      name: keycloak-db-secret
       key: password
   http:
     tlsSecret: tls-secret
