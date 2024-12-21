@@ -9,12 +9,13 @@ spec:
     vendor: postgres
     host: postgresql-rw
     usernameSecret:
-      name: keycloak-db-secret
+      name: keycloak-db
       key: username
     passwordSecret:
-      name: keycloak-db-secret
+      name: keycloak-db
       key: password
   http:
+    httpEnabled: true
     tlsSecret: tls-secret
   hostname:
     hostname: localhost
@@ -34,7 +35,7 @@ type: kubernetes.io/tls
 apiVersion: v1
 kind: Secret
 metadata:
-  name: keycloak-db-secret
+  name: keycloak-db
   namespace: default
 data:
   password: a2V5Y2xvYWs=
