@@ -4,6 +4,22 @@ kind: Cluster
 metadata:
   name: postgresql
 spec:
-  instances: 3
+  instances: 1
+  bootstrap:
+    initdb:
+      database: keycloak
+      owner: keycloak
+      secret:
+        name: keycloak-db
   storage:
     size: 1Gi
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: keycloak-db
+  namespace: default
+data:
+  password: a2V5Y2xvYWs=
+  username: a2V5Y2xvYWs=
+type: Opaque
