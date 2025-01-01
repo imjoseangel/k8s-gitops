@@ -21,7 +21,19 @@ spec:
     hostname: localhost
   proxy:
     headers: xforwarded
-
+  unsupported:
+    podTemplate:
+      spec:
+        containers:
+          - volumeMounts:
+              - name: theme-volume
+                mountPath: /opt/keycloak/providers/custom-theme.jar
+                subPath: custom-theme.jar
+        volumes:
+          - name: theme-volume
+            configMap:
+              name: theme
+              optional: true
 ---
 apiVersion: v1
 kind: Secret
